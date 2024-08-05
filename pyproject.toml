@@ -1,0 +1,119 @@
+[build-system]
+requires = ["setuptools>=61.2.0", "wheel==0.41.3", "pip-tools==7.3.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "telicent-label-builder-service"
+version = "0.1.0"
+authors = [{ name = "Telicent Ltd", email = "opensource@telicent.io" }]
+description = "A helper package to create security labels from data header"
+requires-python = ">=3.10"
+license = { file = "LICENSE" }
+readme = "README.md"
+dependencies = [
+    "fastapi==0.111.0",
+    "telicent-lib==2.0.5",
+    "uvicorn==0.30.1",
+    "python-dotenv~=1.0.1",
+    "python-json-logger==2.0.7",
+    "asgi-correlation-id==4.3.1",
+    "starlette-context==0.3.6",
+    "cachetools==5.4.0"
+]
+classifiers = [
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3 :: Only",
+    "Topic :: Software Development",
+    "Typing :: Typed",
+    "Operating System :: Microsoft :: Windows",
+    "Operating System :: POSIX",
+    "Operating System :: Unix",
+    "Operating System :: MacOS",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pre-commit==3.5.0",
+    "ruff==0.1.5",
+    "types-pytz==2024.1.0.20240417",
+    "urllib3==2.2.2",
+    "types-requests==2.32.0.20240622",
+    "mypy==1.7.0",
+    "cyclonedx-bom==4.4.3",
+    "types-cachetools==5.4.0.20240717"
+]
+
+test = [
+    "telicent-label-builder==0.1.1",
+    "pytest==8.2.2",
+    "pytest-asyncio==0.23.7"
+]
+
+[tool.setuptools.dynamic]
+readme = { file = ["README.md"] }
+
+[tool.ruff]
+target-version = "py310"
+select = [
+    "E", # pycodestyle errors
+    "W", # pycodestyle warnings
+    "F", # pyflakes
+    "I", # isort
+    "C", # flake8-comprehensions
+    "B", # flake8-bugbear
+    "UP", # pyupgrade
+]
+ignore = [
+    "C901", # too complex
+]
+exclude = [
+    ".bzr",
+    ".direnv",
+    ".eggs",
+    ".git",
+    ".git-rewrite",
+    ".hg",
+    ".mypy_cache",
+    ".nox",
+    ".pants.d",
+    ".pytype",
+    ".ruff_cache",
+    ".svn",
+    ".tox",
+    ".venv",
+    "__pypackages__",
+    "_build",
+    "buck-out",
+    "build",
+    "dist",
+    "node_modules",
+    "venv",
+]
+line-length = 120
+
+[project.urls]
+Repository = "https://github.com/telicent-oss/label-builder-service"
+
+[tool.distutils.bdist_wheel]
+universal = true
+
+[tool.setuptools]
+include-package-data = true
+
+[tool.setuptools.packages.find]
+include = ["telicent_lbapi*"]
+namespaces = true
+
+[tool.setuptools.package-data]
+"telicent_lbapi" = ["sbom.json"]
+
+[tool.mypy]
+no_implicit_optional = false
+ignore_missing_imports = true
+modules = ["telicent_lbapi"]
+exclude = 'tests/'
+
+[tool.pytest.ini_options]
+asyncio_mode = 'auto'
