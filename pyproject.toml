@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "telicent-label-builder-service"
-version = "0.1.0"
+version = "0.1.1"
 authors = [{ name = "Telicent Ltd", email = "opensource@telicent.io" }]
 description = "A helper package to create security labels from data header"
 requires-python = ">=3.10"
