@@ -40,6 +40,7 @@ jobs:
     - test
     runs-on: ubuntu-latest
     environment:
+      name: pypi
       url: https://pypi.org/p/telicent-label-builder-service
     permissions:
       id-token: write
