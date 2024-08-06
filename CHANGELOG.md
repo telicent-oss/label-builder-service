@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.1.1](https://github.com/telicent-oss/label-builder-service/compare/v0.1.0...v0.1.1) (2024-08-06)
+
+
+### Miscellaneous
+
+* update publish.yml ([e3d350b](https://github.com/telicent-oss/label-builder-service/commit/e3d350bed93db136e9ff3537cd5a65ca24c1ffbe))
+
 ## 0.1.0 (2024-08-05)
 
 
