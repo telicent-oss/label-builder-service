@@ -63,12 +63,16 @@ in use must implement `build_security_labels` method, otherwise the endpoint wou
 In cases where no additional endpoints are required, a function to run the model as a service utilising the `/ingest` 
 endpoint could be achieved by wrapping `run_api_service` in a class method within the model itself.
 
+All endpoints including customer defined ones are available under `docs` or `redoc` endpoint, 
+default: `http://localhost:8000/docs` or `http://localhost:8000/redoc`
+
+
 E.g:
 
 ```python
 from telicent_lbapi.rest_service import run_api_service
 
-class MyModel(TelicentMixin, BaseModel):
+class MyModel(TelicentMixin):
     testSth: str | None = "sth"
     identifier: str
     classification: str
@@ -100,7 +104,7 @@ from telicent_lbapi.decorators import set_model_class
 from pydantic import BaseModel, ValidationError
 
 
-class MyModel(TelicentMixin, BaseModel):
+class MyModel(TelicentMixin):
     testSth: str | None = "sth"
     identifier: str
     classification: str
