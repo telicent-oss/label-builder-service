@@ -86,6 +86,6 @@ def load_config() -> ApiConfig:
         server_port=server_port,
         server_host=server_host,
         log_to_console=str_to_bool(log_to_console),
-        log_dir=log_dir,
+        log_dir=Path(log_dir),
         log_filename=log_filename
     )
