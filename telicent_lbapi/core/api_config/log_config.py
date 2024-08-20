@@ -50,6 +50,8 @@ class RequestIdFilter(logging.Filter):
 
 def configure_logging(config: ApiConfig):
     log_to_console = config.log_to_console
+    log_to_file = config.log_to_file
+
     log_level = logging.getLevelName(config.logging_level)
     log_dir = config.log_dir
     log_filename = config.log_filename
@@ -79,31 +81,32 @@ def configure_logging(config: ApiConfig):
         ))
         root_logger.addHandler(console_handler)
 
-    file_handler = RotatingFileHandler(
-        filename=str(log_file), maxBytes=1024 * 1024 * 4, backupCount=3
-    )
-    file_handler.setLevel(log_level)
-    file_handler.addFilter(request_id_filter)
-    file_handler.addFilter(model_class_filter)
+    if log_to_file:
+        file_handler = RotatingFileHandler(
+            filename=str(log_file), maxBytes=1024 * 1024 * 4, backupCount=3
+        )
+        file_handler.setLevel(log_level)
+        file_handler.addFilter(request_id_filter)
+        file_handler.addFilter(model_class_filter)
 
-    keys_to_log = [
-        'asctime',
-        'created',
-        'levelname',
-        'filename',
-        'funcName',
-        'lineno',
-        'message',
-        'processName',
-        'threadName',
-        'request_id',
-        'model_class'
-    ]
+        keys_to_log = [
+            'asctime',
+            'created',
+            'levelname',
+            'filename',
+            'funcName',
+            'lineno',
+            'message',
+            'processName',
+            'threadName',
+            'request_id',
+            'model_class'
+        ]
 
-    def log_format(keys):
-        return [f'%({i:s})s' for i in keys]
+        def log_format(keys):
+            return [f'%({i:s})s' for i in keys]
 
-    custom_format = ' '.join(log_format(keys_to_log))
-    json_formatter = jsonlogger.JsonFormatter(custom_format)
-    file_handler.setFormatter(json_formatter)
-    root_logger.addHandler(file_handler)
+        custom_format = ' '.join(log_format(keys_to_log))
+        json_formatter = jsonlogger.JsonFormatter(custom_format)
+        file_handler.setFormatter(json_formatter)
+        root_logger.addHandler(file_handler)
