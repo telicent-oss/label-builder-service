@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.1.2](https://github.com/telicent-oss/label-builder-service/compare/v0.1.1...v0.1.2) (2024-08-20)
+
+
+### Bug Fixes
+
+* disable file logging by default ([323c877](https://github.com/telicent-oss/label-builder-service/commit/323c8779adc8735496368c6873f2bb92ec9d21d3))
+
 ## [0.1.1](https://github.com/telicent-oss/label-builder-service/compare/v0.1.0...v0.1.1) (2024-08-14)
 
 
