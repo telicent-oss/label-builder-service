@@ -49,6 +49,7 @@ class ApiConfig:
     log_to_console: bool
     log_dir: Path
     log_filename: str
+    log_to_file: bool
 
 
 def load_config() -> ApiConfig:
@@ -73,11 +74,12 @@ def load_config() -> ApiConfig:
         "LOG_TO_CONSOLE", default=True
     )
     log_dir = config.get(
-        "LOGING_DIR", default=default_root_dir()
+        "LOGGING_DIR", default=default_root_dir()
     )
     log_filename = config.get(
         "LOG_FILENAME", default=log_filename_default
     )
+    log_to_file = config.get("LOG_TO_FILE", default=False)
 
     return ApiConfig(
         logging_level=logging_level,
@@ -87,5 +89,6 @@ def load_config() -> ApiConfig:
         server_host=server_host,
         log_to_console=str_to_bool(log_to_console),
         log_dir=Path(log_dir),
-        log_filename=log_filename
+        log_filename=log_filename,
+        log_to_file=str_to_bool(log_to_file)
     )
