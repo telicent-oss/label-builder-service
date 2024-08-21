@@ -85,7 +85,7 @@ def load_config() -> ApiConfig:
         logging_level=logging_level,
         cache_size=cache_size,
         cache_timeout=cache_timeout,
-        server_port=server_port,
+        server_port=int(server_port),
         server_host=server_host,
         log_to_console=str_to_bool(log_to_console),
         log_dir=Path(log_dir),
