@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.1.3](https://github.com/telicent-oss/label-builder-service/compare/v0.1.2...v0.1.3) (2024-08-21)
+
+
+### Bug Fixes
+
+* typecast port to int to prevent logging error ([3580bdb](https://github.com/telicent-oss/label-builder-service/commit/3580bdb7b8469335bb4ac985db94972137021872))
+
 ## [0.1.2](https://github.com/telicent-oss/label-builder-service/compare/v0.1.1...v0.1.2) (2024-08-20)
 
 
