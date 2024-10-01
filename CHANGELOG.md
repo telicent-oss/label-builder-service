@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.1.4](https://github.com/telicent-oss/label-builder-service/compare/v0.1.3...v0.1.4) (2024-10-01)
+
+
+### Miscellaneous
+
+* loose version for telicentlib ([40dec91](https://github.com/telicent-oss/label-builder-service/commit/40dec9154d51546e1f5bc2cb43235d11fba790b4))
+
 ## [0.1.3](https://github.com/telicent-oss/label-builder-service/compare/v0.1.2...v0.1.3) (2024-08-21)
 
 
