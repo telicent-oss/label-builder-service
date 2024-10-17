@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.1.5](https://github.com/telicent-oss/label-builder-service/compare/v0.1.4...v0.1.5) (2024-10-17)
+
+
+### Miscellaneous
+
+* update starlette ([#18](https://github.com/telicent-oss/label-builder-service/issues/18)) ([3bccc0f](https://github.com/telicent-oss/label-builder-service/commit/3bccc0fe061d9c8c983917e0e2005a6f46468812))
+
 ## [0.1.4](https://github.com/telicent-oss/label-builder-service/compare/v0.1.3...v0.1.4) (2024-10-01)
 
 
