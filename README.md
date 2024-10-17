@@ -204,5 +204,4 @@ if __name__ == "__main__":
 
     # TelicentModel used here just to illustrate the ability to switch models, the api is model driven.
     run_api_service(model_class=TelicentModel, custom_router=custom_router)
-
 ```
